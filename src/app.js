@@ -13,8 +13,7 @@ app.get('/test', (req, res)=>{
     res.send('route de test ok');
 })
 
-// route parent pour l'auth
-app.use('/api/auth', authRoute);
+
 
 // config de l'app
 // autorisation du cors(cross orign etc)
@@ -23,6 +22,9 @@ app.use(cors());
 app.use(express.json());
 // logger les requetes http(le format dev qui le permet)
 app.use(morgan('dev'));
+
+// route parent pour l'auth
+app.use('/api/auth', authRoute);
 
 // si y'a une erreur on envoie une erreur 500 
 // ca capture tout type d'erreur
